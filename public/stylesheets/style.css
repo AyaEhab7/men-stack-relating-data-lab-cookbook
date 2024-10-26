@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700');
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f9f7f0;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .landing-image {
+    background-image: url('https://i.imgur.com/r3yzbCz.jpeg');
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 0 0 -8px;
+  }  
+  nav {
+    background-color: #333; /* Dark background */
+    padding: 10px; /* Spacing */
+  }
+
+  nav a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Spacing around links */
+    display: inline-block; /* Aligns links in a row */
+  }
+
+  nav a:hover {
+    background-color: #575757; /* Darker background on hover */
+    border-radius: 4px; /* Rounded corners */
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  form {
+    max-width: 300px;
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  label {
+    display: block;
+    margin: 5px 0 5px;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+
+  label {
+    margin-bottom: 5px; /* Space below the label */
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus {
+    border-color: #007BFF; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+.btn {
+    padding: 8px 12px; /* Adjusted padding for buttons */
+    background-color: #007BFF; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    margin-top: 10px; /* Space above the button */
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px; /* Space above the button */
+
+
+  }
+  
+
+.pantry-container {
+    max-width: 600px; /* Set a maximum width for the pantry section */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Add padding around the content */
+    background-color: #fff; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.add-item-btn {
+    display: inline-block; /* Align as a block */
+    padding: 8px 20px; /* Padding for the button */
+    background-color: #007BFF; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    margin-bottom: 15px; /* Spacing below the button */
+}
+
+.add-item-btn:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+.pantry-container ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.pantry-container li {
+    display: flex; /* Align items in a row */
+    justify-content: space-between; /* Space between item and buttons */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px 10px; /* Spacing between list items */
+}
+.edit-btn {
+    background-color: #ffc107; /* Yellow for edit */
+    color: #fff; /* White text */
+}
+.edit-btn, .delete-btn {
+    padding: 5px 40px; /* Smaller padding */
+    border-radius: 4px;
+    cursor: pointer; /* Pointer cursor */
+    margin-left: 5px 10px; /* Space between buttons */
+}
+
+
+.delete-btn {
+    background-color: #dc3545; /* Red for delete */
+    color: #fff; /* White text */
+}
+.pantry-container li {
+  display: flex; /* Align items in a row */
+  justify-content: space-between; /* Space between item and buttons */
+  align-items: center; /* Center items vertically */
+  padding: 10px 20px; /* Spacing between list items */
+  background-color: #f1f1f1; /* Light gray background */
+  border-radius: 4px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between list items */
+  transition: background-color 0.3s; /* Smooth background change */
+}
+.pantry-container li:hover {
+  background-color: #e2e2e2; /* Darker gray on hover */
+}

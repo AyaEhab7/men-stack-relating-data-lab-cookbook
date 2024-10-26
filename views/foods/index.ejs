@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />    
+    <title>My Pantry</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>My Pantry</h1>
+    <div class="pantry-container">
+        <a href="/users/<%= user._id %>/foods/new" class="add-item-btn">Add New Item</a>
+        <ul>
+            <% if (pantry.length) { %>
+                <% pantry.forEach(food => { %>
+                    <li>
+                        <a href="/users/<%= user._id %>/foods/<%= food._id %>"><%= food.name %></a>
+                        <form action="/users/<%= user._id %>/foods/<%= food._id %>/edit" method="GET" style="display:inline;">
+                            <button type="submit" class="edit-btn">Edit</button>
+                        </form>
+                        <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </li>
+                <% }); %>
+            <% } else { %>
+                <p>This pantry is empty.</p>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="/stylesheets/style.css" />    
+    <title>Food Item</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1><%= foodItem.name %></h1>
+    <p>Added to your pantry!</p>
+    <a href="/users/<%= user._id %>/foods">Back to Pantry</a>
+</body>
+</html>

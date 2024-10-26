@@ -1,36 +1,41 @@
+const dotenv = require('dotenv')
+dotenv.config()
 const express = require('express');
-const methodOverride = require('method-override');
-const morgan = require('morgan');
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
-const addUserToViews = require('./middleware/addUserToViews');
+
+const mongoose = require('mongoose')
+const methodOverride = require('method-override');
+const app = express();
+
+const morgan = require('morgan');
 require('dotenv').config();
-require('./config/database');
 
 // Controllers
-const authController = require('./controllers/auth');
 const isSignedIn = require('./middleware/isSignedIn');
+const addUserToViews = require('./middleware/addUserToViews');
 
-const app = express();
+const authController = require('./controllers/auth');
+const foodsController = require('./controllers/foods');
+const usersController = require('./controllers/users.js');
+
+
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : '3000';
+const path = require('path');
+mongoose.connect(process.env.MONGODB_URI);
+
 
 // MIDDLEWARE
-
-// Middleware to parse URL-encoded data from forms
 app.use(express.urlencoded({ extended: false }));
-// Middleware for using HTTP verbs such as PUT or DELETE
 app.use(methodOverride('_method'));
-// Morgan for logging HTTP requests
 app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
-    }),
   })
 );
 
@@ -41,10 +46,7 @@ app.get('/', async (req, res) => {
   res.render('index.ejs');
 });
 
-app.use('/auth', authController);
 
-// Protected Routes
-app.use(isSignedIn);
 
 app.get('/protected', async (req, res) => {
   if (req.session.user) {
@@ -54,6 +56,13 @@ app.get('/protected', async (req, res) => {
     // res.send('Sorry, no guests allowed.');
   }
 });
+
+
+app.use('/auth', authController);
+app.use(isSignedIn);
+app.use('/users', usersController);
+app.use('/users/:userId/foods', foodsController);
+
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
